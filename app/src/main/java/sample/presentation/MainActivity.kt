@@ -12,17 +12,16 @@ import kotlinx.android.synthetic.main.activity_main.userTextInputLayout
 import sample.R
 import sample.di.Injection
 import sample.domain.User
-import sample.extension.showToast
 
 class MainActivity : AppCompatActivity(), LoginView {
 
     private val presenter = Injection.provideLoginPresenter(this)
+    private val logger = Injection.provideAndroidLogger()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.onCreate()
-
     }
 
     override fun onDestroy() {
@@ -31,6 +30,7 @@ class MainActivity : AppCompatActivity(), LoginView {
     }
 
     override fun showLoginScreen() {
+        logger.log("Show login screen")
         loginButton.setOnClickListener { presenter.doLogin() }
         userImageView.visibility = View.GONE
         userNameTextView.visibility = View.GONE
@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), LoginView {
     }
 
     override fun showLoggedScreen(user: User) {
+        logger.log("Show login screen")
         loginButton.setOnClickListener { navigateToGlobalPosition() }
         userImageView.visibility = View.VISIBLE
         userNameTextView.visibility = View.VISIBLE
@@ -62,7 +63,6 @@ class MainActivity : AppCompatActivity(), LoginView {
 
     override fun showError(error: Throwable) {
         hideLoading()
-        val message = error.message ?: return
-        showToast(message)
+        logger.log(error.message.toString())
     }
 }
