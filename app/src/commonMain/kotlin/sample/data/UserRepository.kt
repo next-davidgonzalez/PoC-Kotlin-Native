@@ -1,6 +1,7 @@
 package sample.data
 
 import sample.api.HttpClient
+import sample.api.Logger
 import sample.domain.User
 import toUserModel
 
@@ -11,6 +12,7 @@ class UserRepository(
     override val user: User? = null
 
     override suspend fun doLogin(): User {
+        Logger.log("Invoking doLogin")
         return httpClient.doLogin().toUserModel()
     }
 }
