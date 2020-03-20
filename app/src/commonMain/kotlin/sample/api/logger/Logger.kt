@@ -1,4 +1,4 @@
-package sample.api
+package sample.api.logger
 
 object Logger {
 

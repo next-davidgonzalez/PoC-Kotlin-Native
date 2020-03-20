@@ -1,9 +1,10 @@
-package sample.presentation
+package sample.presentation.login
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import sample.data.UserRepository
+import sample.data.user.UserRepository
+import sample.presentation.BasePresenter
 import kotlin.coroutines.CoroutineContext
 
 class LoginPresenter(

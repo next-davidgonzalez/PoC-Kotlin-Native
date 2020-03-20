@@ -1,8 +1,8 @@
 package sample.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.loginButton
 import kotlinx.android.synthetic.main.activity_main.passwordTextInputLayout
 import kotlinx.android.synthetic.main.activity_main.progressBar
@@ -10,13 +10,13 @@ import kotlinx.android.synthetic.main.activity_main.userImageView
 import kotlinx.android.synthetic.main.activity_main.userNameTextView
 import kotlinx.android.synthetic.main.activity_main.userTextInputLayout
 import sample.R
-import sample.di.Injection
-import sample.domain.User
+import sample.di.Injector
+import sample.domain.model.User
+import sample.presentation.login.LoginView
 
-class LoginActivity : AppCompatActivity(), LoginView {
+class LoginActivity : BaseActivity(), LoginView {
 
-    private val presenter = Injection.provideLoginPresenter(this)
-    private val logger = Injection.provideAndroidLogger()
+    private val presenter = Injector.provideLoginPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,11 +58,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun navigateToGlobalPosition() {
-
+        startActivity(Intent(this, ProductsActivity::class.java))
     }
 
     override fun showError(error: Throwable) {
+        super.showError(error)
         hideLoading()
-        logger.log(error.message.toString())
     }
 }

@@ -1,8 +1,8 @@
 package sample.utils
 
 import android.util.Log
-import sample.api.CustomLogger
-import sample.api.Logger
+import sample.api.logger.CustomLogger
+import sample.api.logger.Logger
 
 class AndroidLogger : CustomLogger {
     init {

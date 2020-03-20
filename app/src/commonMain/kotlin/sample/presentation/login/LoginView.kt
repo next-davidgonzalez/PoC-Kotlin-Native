@@ -1,6 +1,7 @@
-package sample.presentation
+package sample.presentation.login
 
-import sample.domain.User
+import sample.domain.model.User
+import sample.presentation.BaseView
 
 interface LoginView : BaseView {
     fun showLoginScreen()

@@ -1,9 +1,9 @@
-package sample.data
+package sample.data.user
 
-import sample.api.HttpClient
-import sample.api.Logger
-import sample.domain.User
-import toUserModel
+import sample.api.network.HttpClient
+import sample.api.logger.Logger
+import sample.domain.model.User
+import sample.domain.toModel
 
 class UserRepository(
     private val httpClient: HttpClient
@@ -13,6 +13,6 @@ class UserRepository(
 
     override suspend fun doLogin(): User {
         Logger.log("Invoking doLogin")
-        return httpClient.doLogin().toUserModel()
+        return httpClient.doLogin().toModel()
     }
 }

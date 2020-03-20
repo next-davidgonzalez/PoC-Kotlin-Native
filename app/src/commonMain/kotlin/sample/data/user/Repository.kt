@@ -1,6 +1,6 @@
-package sample.data
+package sample.data.user
 
-import sample.domain.User
+import sample.domain.model.User
 
 interface Repository {
     val user: User?
