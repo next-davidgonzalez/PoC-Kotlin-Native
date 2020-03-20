@@ -13,7 +13,7 @@ import sample.R
 import sample.di.Injection
 import sample.domain.User
 
-class MainActivity : AppCompatActivity(), LoginView {
+class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = Injection.provideLoginPresenter(this)
     private val logger = Injection.provideAndroidLogger()
