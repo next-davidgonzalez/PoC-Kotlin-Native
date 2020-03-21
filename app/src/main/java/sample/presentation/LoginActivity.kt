@@ -40,7 +40,7 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun showLoggedScreen(user: User) {
-        logger.log("Show login screen")
+        logger.log("Show logged screen")
         loginButton.setOnClickListener { navigateToGlobalPosition() }
         userImageView.visibility = View.VISIBLE
         userNameTextView.visibility = View.VISIBLE

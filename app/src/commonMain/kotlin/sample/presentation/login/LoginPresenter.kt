@@ -1,6 +1,7 @@
 package sample.presentation.login
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import sample.data.user.UserRepository
@@ -32,8 +33,9 @@ class LoginPresenter(
 
             withContext(Dispatchers.Main) {
                 view.hideLoading()
-                view.showLoggedScreen(user)
                 view.navigateToGlobalPosition()
+                delay(500)
+                view.showLoggedScreen(user)
             }
         }
     }
